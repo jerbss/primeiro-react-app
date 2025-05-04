@@ -1,10 +1,16 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [textoInput, setTextoInput] = useState('');
+
+  function handleInputChange(event) {
+    setTextoInput(event.target.value);
+  }
 
   return (
     <>
@@ -16,9 +22,22 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Peito + Bunda = ❤️</h1>
+      <div>
+        <label htmlFor="meuInput">Digite algo: </label>
+        <input
+          type="text"
+          id="meuInput"
+          value={textoInput}
+          onChange={handleInputChange}
+        />
+      </div>
+      <p>Você digitou: {textoInput}</p>
+      <nav>
+        <Link to="/home">Ir para a Home Page</Link>
+      </nav>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 17)}>
           count is {count}
         </button>
         <p>
@@ -26,7 +45,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Aprendendo React com a ajuda do Copilot!
       </p>
     </>
   )
